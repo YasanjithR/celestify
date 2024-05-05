@@ -9,7 +9,6 @@ import {
 import CMEComponent from "./CMEComponent";
 import IPSComponent from "./IPSComponent";
 import SolarFlareComponent from "./SolarFlareComponent";
-import SEPCompoenent from "./SEPComponent";
 
 const DONKIForm = () => {
   const [startDate, setStartDate] = useState("2022-05-30");
