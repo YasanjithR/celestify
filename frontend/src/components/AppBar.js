@@ -6,12 +6,11 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import Divider from '@mui/material/Divider';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
-
-
+import Divider from '@mui/material/Divider';
 
 const logoStyle = {
   width: '140px',
@@ -19,7 +18,7 @@ const logoStyle = {
   cursor: 'pointer',
 };
 
-function AppAppBar({ mode, toggleColorMode }) {
+function AppAppBar({ mode, toggleColorMode, email }) {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen) => () => {
@@ -125,7 +124,11 @@ function AppAppBar({ mode, toggleColorMode }) {
                 alignItems: 'center',
               }}
             >
-              
+              {email && (
+                <Typography variant="body2" color="text.primary">
+                  {email}
+                </Typography>
+              )}
             </Box>
             <Box sx={{ display: { sm: '', md: 'none' } }}>
               <Button
@@ -135,9 +138,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                 onClick={toggleDrawer(true)}
                 sx={{ minWidth: '30px', p: '4px' }}
               >
-
-            <MenuIcon />
-               
+                <MenuIcon />
               </Button>
               <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
                 <Box
@@ -156,21 +157,20 @@ function AppAppBar({ mode, toggleColorMode }) {
                       flexGrow: 1,
                     }}
                   >
-                    
+                    <MenuItem onClick={() => scrollToSection('donki')}>
+                      DONKI
+                    </MenuItem>
+                    <MenuItem onClick={() => scrollToSection('epic')}>
+                      EPI Camera
+                    </MenuItem>
+                    <MenuItem onClick={() => scrollToSection('highlights')}>
+                      Highlights
+                    </MenuItem>
+                    <MenuItem onClick={() => scrollToSection('mars-rovers')}>
+                      Mars Rovers
+                    </MenuItem>
+                    <Divider />
                   </Box>
-                  <MenuItem onClick={() => scrollToSection('donki')}>
-                    DONKI
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('epic')}>
-                    EPI Camera
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('highlights')}>
-                    Highlights
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('mars-rovers')}>
-                    Mars Rovers
-                  </MenuItem>
-                  <Divider />
                 </Box>
               </Drawer>
             </Box>
@@ -184,6 +184,7 @@ function AppAppBar({ mode, toggleColorMode }) {
 AppAppBar.propTypes = {
   mode: PropTypes.oneOf(['dark', 'light']).isRequired,
   toggleColorMode: PropTypes.func.isRequired,
+  email: PropTypes.string,
 };
 
 export default AppAppBar;

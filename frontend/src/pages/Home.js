@@ -14,7 +14,7 @@ const Home = () =>{
         <DONKIForm/>
         <EpicSlider/>
         <RoverDetails/>
-        <Hero/>
+
         </div>
     )
 
