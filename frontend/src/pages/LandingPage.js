@@ -100,7 +100,7 @@ function Hero() {
               size="small"
               variant="outlined"
               aria-label="Enter your email address"
-              placeholder="Your email address"
+              placeholder="Your Name"
               inputProps={{
                 autoComplete: 'off',
                 'aria-label': 'Enter your email address',
