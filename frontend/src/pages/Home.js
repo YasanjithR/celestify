@@ -4,8 +4,11 @@ import EpicSlider from "../components/EpicImage"
 import RoverDetails from "../components/Rover"
 import AppAppBar from "../components/AppBar"
 import Hero from "../components/Email"
+import useEmail from "../hooks/fetchEmail"
 
 const Home = () =>{
+
+    const emailStorage = useEmail();
 
     return(
         <div>
