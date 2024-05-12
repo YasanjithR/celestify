@@ -9,7 +9,7 @@ const Home = () =>{
 
     return(
         <div>
-        <AppAppBar/>
+        <AppAppBar email={emailStorage.get}/>
         <PicOfTheDay/>
         <DONKIForm/>
         <EpicSlider/>
