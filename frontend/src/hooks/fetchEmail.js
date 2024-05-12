@@ -16,10 +16,6 @@ export default function useEmail() {
   const [email, setEmail] = useState(getEmail());
   const [isSubmitted, setIsSubmitted] = useState(getIsSubmitted());
 
-  useEffect(() => {
-    localStorage.setItem('isSubmitted', JSON.stringify(isSubmitted));
-  }, [isSubmitted]);
-
   const saveEmail = userEmail => {
     localStorage.setItem('email', JSON.stringify(userEmail));
     setEmail(userEmail);
@@ -28,6 +24,12 @@ export default function useEmail() {
   const submitEmail = () => {
     setIsSubmitted(true);
   };
+
+  useEffect(() => {
+    if (isSubmitted) {
+      localStorage.setItem('isSubmitted', JSON.stringify(isSubmitted));
+    }
+  }, [isSubmitted]);
 
   return {
     set: saveEmail,
